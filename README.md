@@ -1,123 +1,19 @@
-Archivo README modificado
-# HOgit
-Repositorio con ejercicios para practicar comandos básicos de git
+# Object oriented project hands on
 
-## Qué podemos hacer
+## Radar
+El objetivo de esta sesion es realizar una simulación de un radar usando para ello un diseño orientado a objetos.
 
-### Commits
-Modificar un archivo y agregarlo al repositorio como un nuevo commit
+Inicialmente deben bajar todos los archivos .py en su home. El proyecto cuenta con varios archivos  **python**, que corresponden a las diversas clases utilizadas en la simulación. Las clases son: radar, generador de señal, receptor de señal, medio y blanco.
 
-### Branches
-Creamos un branch acerca de las charlas, y decimos que nos parecen buenísimas
-Pasos con los que armamos el repo de github de HOgit.
+Un radar es un equipo genera y transmite señales hacia un medio donde pueden o no existir blancos. En caso de que la señal encuentre en su camino un blanco, éste puede reflejar la misma hacia el radar. La señal es recepcionada en el equipo para luego ser procesada por el detector. La clase detección determina si existe un blanco o no.
 
+## Tareas
 
-## Cómo creamos este repositorio
+1. Completar la implementación de los métodos faltantes en las diferentes clases.
 
-Inicialmente estaba creado en github (desde la WEB) con 
-sólo un README. EN cualquier lugar pueden (y deberían!)
-correr `git status` y `git branch -a` para chequear
-en qué estado está el repositorio y en qué branch están:
+2. Completar el modulo main con la construcción de un radar e implementar algunos ejemplos
+
+3. Existe un tipo especial de blanco denominado Clutter. Estos son blancos estaticos que en el momento de ser iluminados por el radar reflejan grandes cantidades de energia lo que puede "cegar" al radar impidiendo la detección de otros blancos presentes. Un ejemplo de Clutter es una montaña. Se pide rediseñar la simulación de manera que se cree una subclase de blanco denominada blanco_clutter. Cuando el Clutter refleja una onda incidente, produce una señal de mayor amplitud que supera a la señal transmitida.
 
 
-Clonamos un repositorio de github con sólo un README
-
-```
-git clone git@github.com:wtpc/HOgit.git
-cd HOgit
-```
-
-Editamos el archivo de README y hacemos un nuevo commit
-
-```
-vi README.md
-.........
-git add README.md
-git commit
-```
-
-Ya hay un nuevo snapshot. Ahora creamos una branch
-
-```
-git branch charlas
-```
-
-y nos movemos a ella
-
-```
-git checkout charlas
-```
-
-en esta branch, editamos README.md de nuevp
-
-```
-vi README.md
-...
-git add README.md
-git commit
-```
-
-ahora vamos a master (que no tiene estos cambios, porque es otra branch!)
-
-```
-git checkout master
-```
-
-y a partir de master creamos una nueva branch
-
-```
-git branch ejercicios
-git checkout ejercicios
-```
-
-editamos un archivo nuevo, ejercicios.md
-
-```
-vi ejercicios.md
-...
-git add ejercicios.md
-git commit
-```
-
-Y ahora, en master, hacemos un merge de ambas branches por separado:
-(fíjense que no importa que el orden sea el mismo que en el que 
-las modificamos. es sensato porque las branches no se comunican)
-
-```
-git merge --no-ff ejercicios
-git merge --no-ff charlas
-```
-
-la opción --no-ff sirve para que no "mezcle" las dos branches, y queda más prolijo el network. recomienod que la usen siempre, pero no es fundamental.
-
-si quieren ver cómo quedó la historia del repo:
-
-```
-git log --oneline --graph
-```
-
-finalmente, hacemos un push de todas las branches:
-
-```
-git push -u origin master
-git push -u origin ejercicios
-git push -u origin charlas
-```
-
-y listo! en nuestra cuenta de github ya tiene que estar subido. pueden ver el network de github que les va a mostrar la historia
-
-Luego también editamos este readme para agregar los comandos con los que hicimos el repositorio
-
-
-```
-vi README.md
-...
-git add README.md
-git commit
-```
-
-y el push
-
-```
-git push
-```
+4. Implementar el método del radar plotear_senal() para visualizar las senales antes y despues de impactar en un blanco
